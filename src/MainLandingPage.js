@@ -1,10 +1,9 @@
 import React from 'react'
-import './index.css'
 
 const MainLandingPage = () => {
   return (
     <div className="MainLandingPageDiv">
-
+      <h1>Ad Astra</h1>
     </div>
   )
 }
