@@ -1,0 +1,100 @@
+body {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    height: 100%;
+    background-image: url("./pexels-photo-1341279.jpeg");
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+    color: white;
+}
+
+.MainLandingPageDiv {
+  width: 100%;
+  height: auto;
+  text-align: center;
+
+}
+
+.MainLandingPageDiv h1 {
+  color: white;
+  font-family: 'Audiowide', cursive;
+  font-size: 6em;
+  display: inline-block;
+  letter-spacing: 18px;
+  /* background-color: rgba(16, 16, 10, 0.68);
+  text-shadow: 1px 1px #ccc;
+  box-shadow: 1px 1px 2px 2px rgba(255,255,255,0.2); */
+  box-sizing: border-box;
+  padding-left: 15px;
+}
+
+.apod {
+  font-family: 'Lato', sans-serif;
+  display: block;
+  margin: -10px auto 100px auto;
+  width: 75%;
+  max-height: auto;
+  text-align: center;
+  box-shadow: 1px 1px 2px 2px rgba(255,255,255,0.2);
+  background-color: rgba(16, 16, 10, 0.68);
+  border-radius: 6.18%;
+  padding: 16.8px;
+}
+
+.apod > h1, h4 {
+  text-align: center;
+}
+
+.apod > h4 {
+  font-size: 1.6em;;
+}
+
+a > img {
+  width: 75%;
+  height: auto;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin: 25px auto;
+}
+
+.apod > a {
+  text-decoration: none;
+}
+
+.apod > p {
+  font-family: 'Laila', serif;
+}
+
+.navbarContainer {
+  font-family: 'Audiowide', cursive;
+  display: block;
+  text-align: center;
+}
+
+.navbarContainer a {
+  text-decoration: none;
+  font-size: 2.4em;
+  margin: 0 20px;
+  color: white;
+}
+
+@media only screen and (min-width: 600px) {
+  .apod > img {
+    width: 60%;
+    height: auto;
+  }
+  .apod {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .apod > img {
+    width: 50%;
+    height: auto;
+  }
+  .apod {
+    width: 60%;
+  }
+}
