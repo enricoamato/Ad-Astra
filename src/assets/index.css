@@ -23,9 +23,6 @@ body {
   font-size: 6em;
   display: inline-block;
   letter-spacing: 18px;
-  /* background-color: rgba(16, 16, 10, 0.68);
-  text-shadow: 1px 1px #ccc;
-  box-shadow: 1px 1px 2px 2px rgba(255,255,255,0.2); */
   box-sizing: border-box;
   padding-left: 15px;
 }
@@ -66,6 +63,18 @@ a > img {
   font-family: 'Laila', serif;
 }
 
+.mainImg {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2ss ease-in-out;
+}
+
+.mainImg:hover {
+  opacity: 0.6;
+}
+
 .navbarContainer {
   font-family: 'Audiowide', cursive;
   display: block;
@@ -79,22 +88,21 @@ a > img {
   color: white;
 }
 
-@media only screen and (min-width: 600px) {
-  .apod > img {
-    width: 60%;
-    height: auto;
-  }
+@media only screen and (min-width: 850px) {
   .apod {
-    width: 80%;
+    width: 55%;
   }
 }
 
-@media only screen and (min-width: 900px) {
-  .apod > img {
-    width: 50%;
-    height: auto;
-  }
-  .apod {
-    width: 60%;
-  }
+.previousApod {
+  width: 200px;
+  height: 200px;
+  /* border: 2px solid yellow; */
+  border-radius: 100px;
+}
+
+.previousApod img {
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
 }

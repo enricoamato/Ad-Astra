@@ -2,11 +2,9 @@ import React from 'react'
 import MainLandingPage from './MainLandingPage'
 import Apod from './Apod'
 import Navbar from './Navbar'
+// import PreviousApod from './PreviousApod'
 
 class App extends React.Component {
-
-
-
   render() {
     return(
       <div>
@@ -20,3 +18,5 @@ class App extends React.Component {
 } //class
 
 export default App
+
+//<PreviousApod />
