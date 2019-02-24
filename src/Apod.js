@@ -5,9 +5,9 @@ const Apod = (props) =>  {
 
   function mediaType(){
     if(props.media_type === 'video'){
-      return <iframe src={props.mediaUrl} frameborder="0" allowfullscreen="true" alt="video"></iframe>
+      return <iframe src={props.mediaUrl} frameborder="0" allowfullscreen="true" title="nasa"></iframe>
     }else{
-      return <img src={props.mediaUrl} alt="image"></img>
+      return <img src={props.mediaUrl} alt="Apod"></img>
     }
   }
 
