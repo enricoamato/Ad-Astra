@@ -49,6 +49,9 @@ class App extends React.Component {
         <PreviousApod
           mediaUrl={mediaUrl}
           date={date}
+          explanation={explanation}
+          isLoading={isLoading}
+          media_type={media_type}
         />
       </div>
     )}else{
