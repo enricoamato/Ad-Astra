@@ -100,12 +100,12 @@ a > img {
 
 @media only screen and (max-width: 905px) {
   .apodMedia iframe {
-    width: 360px;
-    height: 180px;
+    width: 400px;
+    height: 200px;
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
   .apodMedia iframe {
     width: 270px;
     height: 135px;
@@ -120,8 +120,17 @@ a > img {
   text-align: center;
 }
 
-.previousApod img {
+.previousApod img, iframe {
   height: 100%;
   width: 100%;
   border-radius: 100px;
+  position: relative;
+}
+
+.gridSystem {
+  border: 2px solid yellow;
+  width: 75%;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
