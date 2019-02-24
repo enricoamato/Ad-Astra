@@ -88,17 +88,36 @@ a > img {
   color: white;
 }
 
-@media only screen and (min-width: 850px) {
+@media only screen and (min-width: 906px) {
   .apod {
     width: 55%;
+  }
+  .apodMedia iframe {
+    width: 480px;
+    height: 270px;
+  }
+}
+
+@media only screen and (max-width: 905px) {
+  .apodMedia iframe {
+    width: 360px;
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .apodMedia iframe {
+    width: 270px;
+    height: 135px;
   }
 }
 
 .previousApod {
   width: 200px;
   height: 200px;
-  /* border: 2px solid yellow; */
+  border: 2px solid yellow;
   border-radius: 100px;
+  text-align: center;
 }
 
 .previousApod img {
