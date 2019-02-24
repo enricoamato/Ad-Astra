@@ -1,55 +1,28 @@
 import React from 'react'
-import PreviousApod from './PreviousApod'
+// import PreviousApod from './PreviousApod'
 
-class Apod extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      total: undefined,
-      date: undefined,
-      explanation: undefined,
-      apodPicUrl: undefined,
-      isLoading: true,
-      resParam: undefined
+const Apod = (props) =>  {
+
+  function mediaType(){
+    if(props.media_type === 'video'){
+      return <iframe src={props.mediaUrl} frameborder="0" allowfullscreen="true" alt="video"></iframe>
+    }else{
+      return <img src={props.mediaUrl} alt="image"></img>
     }
   }
 
-  componentDidMount() {
-    const endpoint = 'https://api.nasa.gov/planetary/apod'
-    const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
-    fetch(`${endpoint}?api_key=${key}`)
-      .then(res => res.json())
-      .then(res => this.setState({
-        total: res,
-        date: res.date,
-        explanation: res.explanation,
-        apodPicUrl: res.hdurl,
-        isLoading: false
-      }))
-  }
 
-  render() {
-
-    const {apodPicUrl, date} = this.state
-    if(!this.state.isLoading){
+  if(!props.isLoading){
       return(
-        <div className="container">
-          <div className="apod">
-            <h1>Astronomy Picture of the Day</h1>
-            <h4>{this.state.date}</h4>
-
-            <div className="apodImgSection">
-              <a href={this.state.apodPicUrl} target="_blank" rel="noopener noreferrer">
-                <img className="mainImg" alt="apodPic" src={this.state.apodPicUrl} />
-              </a>
-            </div>
-
-            <p>{this.state.explanation}</p>
-            <PreviousApod
-              apodPicUrl={apodPicUrl}
-              date={date}
-            />
+        <div className="apod">
+          <h1>Astronomy Picture of the Day</h1>
+          <h4>{props.date}</h4>
+          <div className="apodMedia">
+            <a href={props.mediaUrl} target="_blank" rel="noopener noreferrer">
+              {mediaType()}
+            </a>
           </div>
+          <p>{props.explanation}</p>
         </div>
       )
     } else {
@@ -58,7 +31,7 @@ class Apod extends React.Component {
       )
     }
 
-  } //render
-} //Apod class
+} //Apod Closing
+
 
 export default Apod
