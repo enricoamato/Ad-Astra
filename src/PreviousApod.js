@@ -2,15 +2,22 @@ import React from 'react'
 
 const PreviousApod = (props) => {
 
-  const splitDate = () => {
-    console.log("pino")
+  function mediaType(){
+    if(props.media_type === 'video'){
+      return <iframe src={props.mediaUrl} frameborder="0" allowfullscreen="true" title="nasa"></iframe>
+    }else{
+      return <img src={props.mediaUrl} alt="Apod"></img>
+    }
   }
 
-  console.log(props.date)
   return(
-    <div className="previousApod">
-      <img src={props.mediaUrl} alt="apod media"></img>
-      <span>{props.date}</span>
+    <div className="gridSystem">
+      <div className="previousApod">
+        <a href={props.mediaUrl} target="_blank" rel="noopener noreferrer">
+          {mediaType()}
+        </a>
+        <span>{props.date}</span>
+      </div>
     </div>
   )
 }
