@@ -2,7 +2,7 @@ import React from 'react'
 import MainLandingPage from './MainLandingPage'
 import Apod from './Apod'
 import Navbar from './Navbar'
-import PreviousApod from './PreviousApod'
+// import PreviousApod from './PreviousApod'
 
 class App extends React.Component {
   constructor() {
@@ -12,47 +12,99 @@ class App extends React.Component {
       date: undefined,
       explanation: undefined,
       mediaUrl: undefined,
-      media_type: undefined,
-      isLoading: true
+      mediaType: undefined,
+      isLoading: true,
+      value: undefined
     }
+    this.handleChange = this.handleChange.bind(this)
+    this.search = this.search.bind(this)
+    this.handleKeyPress = this.handleKeyPress.bind(this)
   }
 
   componentDidMount() {
     const endpoint = 'https://api.nasa.gov/planetary/apod?'
     const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
     fetch(`${endpoint}api_key=${key}`)
-      .then(res => res.json())
-      .then(res => this.setState({
-        total: res,
-        date: res.date,
-        explanation: res.explanation,
-        mediaUrl: res.url,
-        media_type: res.media_type,
-        isLoading: false
-      }))
+      .then(res => {
+        try {
+          console.log(res.ok, res.status)
+          if(res.ok){
+            console.log(res)
+            return res.json()
+          .then(res => this.setState({
+            date: res.date,
+            explanation: res.explanation,
+            mediaUrl: res.url,
+            mediaType: res.media_type,
+            isLoading: false
+          }))
+        } else {
+          console.log('error')
+          }
+        }
+        catch(error){
+          console.log(res)
+        }
+      })
+    }
+
+  search() {
+      const endpoint = 'https://api.nasa.gov/planetary/apod?'
+      const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
+      fetch(`${endpoint}api_key=${key}&date=${this.state.value}`)
+        .then(res => {
+          try {
+            console.log(res.ok, res.status)
+            if(res.ok){
+              console.log(res)
+              return res.json()
+            .then(res => this.setState({
+              date: res.date,
+              explanation: res.explanation,
+              mediaUrl: res.url,
+              mediaType: res.media_type,
+              isLoading: false
+            }))
+          } else {
+            console.log('error')
+            }
+          }
+          catch(error){
+            console.log(res)
+          }
+        })
+      }
+
+
+  handleChange(event) {
+    this.setState({value: event.target.value})
+  }
+
+  handleKeyPress(event) {
+    if(event.key === 'Enter'){
+      this.search()
+    }
   }
 
   render() {
-    const {mediaUrl, date, explanation, isLoading, media_type} = this.state
+    const {mediaUrl, date, explanation, isLoading, mediaType} = this.state
     if(!isLoading){
     return(
       <div>
         <Navbar />
+        <div className="apodSearch">
+          <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange}></input>
+          <button onClick={this.search}>Search</button>
+        </div>
         <MainLandingPage />
         <Apod
           mediaUrl={mediaUrl}
           date={date}
           explanation={explanation}
           isLoading={isLoading}
-          media_type={media_type}
+          mediaType={mediaType}
         />
-        <PreviousApod
-          mediaUrl={mediaUrl}
-          date={date}
-          explanation={explanation}
-          isLoading={isLoading}
-          media_type={media_type}
-        />
+
       </div>
     )}else{
       return(
@@ -67,3 +119,10 @@ class App extends React.Component {
 } //class
 
 export default App
+
+
+//onKeyPress={this.handleKeyPress} onChange={this.handleChange}
+//onClick={this.search}
+/*<PreviousApod
+  date={date}
+/>*/
