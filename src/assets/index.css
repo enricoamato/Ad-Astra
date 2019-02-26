@@ -3,7 +3,7 @@ body {
     padding:0;
     box-sizing: border-box;
     height: 100%;
-    background-image: url("./pexels-photo-1341279.jpeg");
+    background-image: url("./dark-stars.jpeg");
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
@@ -42,6 +42,7 @@ body {
 
 .apod > h1, h4 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 .apod > h4 {
@@ -99,6 +100,9 @@ a > img {
 }
 
 @media only screen and (max-width: 905px) {
+  .apod {
+    border-radius: 3%;
+  }
   .apodMedia iframe {
     width: 400px;
     height: 200px;
@@ -106,6 +110,9 @@ a > img {
 }
 
 @media only screen and (max-width: 550px) {
+  .apod {
+    border-radius: 1%;
+  }
   .apodMedia iframe {
     width: 270px;
     height: 135px;
@@ -113,24 +120,29 @@ a > img {
 }
 
 .previousApod {
-  width: 200px;
-  height: 200px;
-  border: 2px solid yellow;
-  border-radius: 100px;
   text-align: center;
 }
 
-.previousApod img, iframe {
-  height: 100%;
-  width: 100%;
-  border-radius: 100px;
-  position: relative;
-}
-
-.gridSystem {
-  border: 2px solid yellow;
-  width: 75%;
+.apodSearch {
   text-align: center;
-  display: block;
   margin: 0 auto;
+}
+
+input[type=text] {
+  font-size: 20px;
+  margin-top: 10px;
+  padding-left: 0px;
+  border-radius: 2px;
+}
+
+button {
+  font-size: 22px;
+  margin-top: 10px;
+  padding-left: 0px;
+  background-color: white;
+  border: 0px solid white;
+  margin-left: 0px;
+  border-radius: 2px;
+  margin-left: 3px;
+  padding: 1px;
 }
