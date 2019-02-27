@@ -6,7 +6,7 @@ class PreviousApod extends React.Component {
     this.state = {
       total: undefined,
       oldDate: props.date,
-      newDate: undefined,
+      prevDate: undefined,
       explanation: undefined,
       mediaUrl: undefined,
       mediaType: undefined,
@@ -74,7 +74,7 @@ class PreviousApod extends React.Component {
     fetch(`${endpoint}api_key=${key}&date=${this.getPreviousDate(this.state.oldDate)}`)
       .then(res => res.json())
       .then(res => this.setState({
-        newDate: res.date,
+        prevDate: res.date,
         explanation: res.explanation,
         mediaUrl: res.url,
         mediaType: res.media_type,
@@ -92,7 +92,6 @@ class PreviousApod extends React.Component {
         </a>
           {this.mediaType()} <br/>
           <p>{this.state.explanation}</p>
-
       </div>
     )
   }
