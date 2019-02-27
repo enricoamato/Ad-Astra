@@ -2,16 +2,14 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-    <div className="navbarContainer">
-      <nav>
+      <nav className="navbarContainer">
         <ul>
-          <a href="https://api.nasa.gov/">Home</a>
-          <a href="https://api.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA API</a>
-          <a href="https://api.nasa.gov/">About</a>
-          <a href="https://api.nasa.gov/">Resume</a>
+          <li><a href="https://api.nasa.gov/">Home</a></li>
+          <li><a href="https://api.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA API</a></li>
+          <li><a href="https://api.nasa.gov/">About</a></li>
+          <li><a href="https://api.nasa.gov/">Resume</a></li>
         </ul>
       </nav>
-    </div>
   )
 }
 
