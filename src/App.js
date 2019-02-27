@@ -93,7 +93,7 @@ class App extends React.Component {
       <div>
         <Navbar />
         <div className="apodSearch">
-          <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange}></input>
+          <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange} placeHolder="YYYY-MM-DD"></input>
           <button onClick={this.search}>Search</button>
         </div>
         <MainLandingPage />
@@ -104,6 +104,7 @@ class App extends React.Component {
           isLoading={isLoading}
           mediaType={mediaType}
         />
+
 
       </div>
     )}else{
@@ -120,9 +121,8 @@ class App extends React.Component {
 
 export default App
 
+/*
 
+*/
 //onKeyPress={this.handleKeyPress} onChange={this.handleChange}
 //onClick={this.search}
-/*<PreviousApod
-  date={date}
-/>*/
