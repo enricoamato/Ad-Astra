@@ -1,6 +1,8 @@
 import React from 'react'
+import Search from './Search'
 
 const Apod = (props) =>  {
+
 
   function mediaType(){
     if(props.mediaType === 'video'){
@@ -16,6 +18,11 @@ const Apod = (props) =>  {
         <div className="apod">
           <h1>Astronomy Picture of the Day</h1>
           <h4>{props.date}</h4>
+          <Search
+            handleChange={props.handleChange}
+            search={props.search}
+          />
+          <h3 className="title">{props.title}</h3>
           <div className="apodMedia">
             <a href={props.mediaUrl} target="_blank" rel="noopener noreferrer">
               {mediaType()}
