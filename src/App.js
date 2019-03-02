@@ -2,7 +2,7 @@ import React from 'react'
 import MainLandingPage from './MainLandingPage'
 import Apod from './Apod'
 import Navbar from './Navbar'
-// import PreviousApod from './PreviousApod'
+
 
 class App extends React.Component {
   constructor() {
@@ -14,11 +14,11 @@ class App extends React.Component {
       mediaUrl: undefined,
       mediaType: undefined,
       isLoading: true,
-      value: undefined
+      title: undefined
     }
     this.handleChange = this.handleChange.bind(this)
-    this.search = this.search.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
+    this.search = this.search.bind(this)
   }
 
   componentDidMount() {
@@ -36,7 +36,8 @@ class App extends React.Component {
             explanation: res.explanation,
             mediaUrl: res.url,
             mediaType: res.media_type,
-            isLoading: false
+            isLoading: false,
+            title: res.title
           }))
         } else {
           console.log('error')
@@ -48,10 +49,10 @@ class App extends React.Component {
       })
     }
 
-  search() {
+  search(value) {
       const endpoint = 'https://api.nasa.gov/planetary/apod?'
       const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
-      fetch(`${endpoint}api_key=${key}&date=${this.state.value}`)
+      fetch(`${endpoint}api_key=${key}&date=${value}`)
         .then(res => {
           try {
             console.log(res.ok, res.status)
@@ -63,7 +64,8 @@ class App extends React.Component {
               explanation: res.explanation,
               mediaUrl: res.url,
               mediaType: res.media_type,
-              isLoading: false
+              isLoading: false,
+              title: res.title
             }))
           } else {
             console.log('error')
@@ -75,9 +77,8 @@ class App extends React.Component {
         })
       }
 
-
-  handleChange(event) {
-    this.setState({value: event.target.value})
+  handleChange(input) {
+    console.log(input)
   }
 
   handleKeyPress(event) {
@@ -87,15 +88,12 @@ class App extends React.Component {
   }
 
   render() {
-    const {mediaUrl, date, explanation, isLoading, mediaType} = this.state
+    const {mediaUrl, date, explanation, isLoading, mediaType, title} = this.state
     if(!isLoading){
     return(
       <div>
         <Navbar />
-        <div className="apodSearch">
-          <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange} placeHolder="YYYY-MM-DD"></input>
-          <button onClick={this.search}>Search</button>
-        </div>
+
         <MainLandingPage />
         <Apod
           mediaUrl={mediaUrl}
@@ -103,7 +101,11 @@ class App extends React.Component {
           explanation={explanation}
           isLoading={isLoading}
           mediaType={mediaType}
+          title={title}
+          handleChange={this.handleChange}
+          search={this.search}
         />
+
 
 
       </div>
@@ -122,7 +124,10 @@ class App extends React.Component {
 export default App
 
 /*
-
+  <div className="apodSearch">
+    <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange} placeholder="YYYY-MM-DD"></input>
+    <button onClick={this.search}>Search</button>
+  </div>
 */
 //onKeyPress={this.handleKeyPress} onChange={this.handleChange}
 //onClick={this.search}
