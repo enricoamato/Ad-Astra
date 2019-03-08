@@ -2,7 +2,7 @@ import React from 'react'
 import MainLandingPage from './MainLandingPage'
 import Apod from './Apod'
 import Navbar from './Navbar'
-
+import PreviousApod from './PreviousApod'
 
 class App extends React.Component {
   constructor() {
@@ -27,9 +27,7 @@ class App extends React.Component {
     fetch(`${endpoint}api_key=${key}`)
       .then(res => {
         try {
-          console.log(res.ok, res.status)
           if(res.ok){
-            console.log(res)
             return res.json()
           .then(res => this.setState({
             date: res.date,
@@ -39,9 +37,9 @@ class App extends React.Component {
             isLoading: false,
             title: res.title
           }))
-        } else {
+          } else {
           console.log('error')
-          }
+            }
         }
         catch(error){
           console.log(res)
@@ -55,9 +53,7 @@ class App extends React.Component {
       fetch(`${endpoint}api_key=${key}&date=${value}`)
         .then(res => {
           try {
-            console.log(res.ok, res.status)
             if(res.ok){
-              console.log(res)
               return res.json()
             .then(res => this.setState({
               date: res.date,
@@ -106,7 +102,9 @@ class App extends React.Component {
           search={this.search}
         />
 
-
+        <PreviousApod
+          date={date}
+        />
 
       </div>
     )}else{
@@ -122,12 +120,3 @@ class App extends React.Component {
 } //class
 
 export default App
-
-/*
-  <div className="apodSearch">
-    <input type="text" onKeyPress={this.handleKeyPress} onChange={this.handleChange} placeholder="YYYY-MM-DD"></input>
-    <button onClick={this.search}>Search</button>
-  </div>
-*/
-//onKeyPress={this.handleKeyPress} onChange={this.handleChange}
-//onClick={this.search}
