@@ -19,7 +19,7 @@ class Search extends React.Component {
       <div className="apodSearch">
 
         <form onSubmit={this.search}>
-          <label>Search: </label>
+          <label>Search for new APOD: </label> <br/>
           <input
             type="text"
             value={this.state.value}
