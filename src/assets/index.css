@@ -2,16 +2,12 @@ body {
     margin:0;
     padding:0;
     box-sizing: border-box;
-    height: 100%;
+    height: 100vh;
     background-image: url("./dark-stars.jpeg");
     background-position: center;
     background-repeat: repeat-y;
     background-size: cover;
     color: white;
-}
-
-#root {
-  height: 1000px;
 }
 
 ul, li, ol {
@@ -23,10 +19,9 @@ ul, li, ol {
 #particles-js {
   position: absolute;
   z-index: -1;
-  min-width: 100%;
-  height: 2000px;
+  width: 100%;
+  height: 200vh;
 }
-
 
 .MainLandingPageDiv {
   width: 100%;
@@ -61,7 +56,7 @@ ul, li, ol {
   font-size: 1.5em;
 }
 
-a > img {
+img {
   width: 75%;
   height: auto;
   border: 1px solid rgba(255, 255, 255, 0.4);
@@ -84,7 +79,7 @@ a > img {
   transition: opacity 0.2ss ease-in-out;
 }
 
-.apodMedia:hover img{
+.apodMedia img:hover{
   opacity: 0.6;
 }
 
@@ -143,6 +138,25 @@ a > img {
 
 .previousApod {
   text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  background-color: #252525;
+}
+
+.previousApod img, iframe {
+  width: 50%;
+}
+
+.previousApod img {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2ss ease-in-out;
+}
+
+.previousApod img:hover{
+  opacity: 0.6;
 }
 
 .apodSearch {
@@ -173,10 +187,14 @@ button {
   font-size: 5em;
   font-family: 'ZCOOL QingKe HuangYou', cursive;
   letter-spacing: 2px;
-  margin: 0;
-  margin-bottom: 5%;
+  margin: 3% auto 3% auto;
 }
 
 #dt {
   text-indent: -500px;height:25px; width:200px;
+}
+
+h5 {
+  font-size: 1.5em;
+  font-family: 'Lato', sans-serif;
 }
