@@ -4,14 +4,17 @@ class PreviousApod extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      total: undefined,
-      oldDate: props.date,
-      prevDate: undefined,
-      explanation: undefined,
-      mediaUrl: undefined,
-      mediaType: undefined,
-      isLoading: true
+      todayDate: props.date,
+      previousDates: [],
+      previousMediaUrls: [],
+      previousTitles: [],
+      previousMediaType: [],
+      previousDates: [],
+      isLoading: undefined
     }
+    this.handleDate = this.handleDate.bind(this)
+    this.loadPreviousApods = this.loadPreviousApods.bind(this)
+    this.loadPreviousApods = this.loadPreviousApods.bind(this)
   }
 
   mediaType(){
@@ -27,74 +30,139 @@ class PreviousApod extends React.Component {
     var year = splittedDate[0]
     var month = splittedDate[1]
     var day = splittedDate[2]
-
     var thirtyone = [1,3,5,7,8,10,12]
     var thirty = [4,6,9,11]
     var twentyeight = [2]
-
-    var typeDay = undefined
     var newMonth = undefined
-
-    var lastDayOfMonth = {
-      "thirtyone" : "31",
-      "thirty" : "30",
-      "twentyeight" : "28"
-    }
+    var newDay = undefined
 
     if(+day <= 1){
       if(! +month <= 1){
         newMonth = +month -1
         if(newMonth in thirtyone){
-          typeDay = "thirtyone"
+          newDay = '31'
         }
         else if(newMonth in thirty){
-          typeDay = "thirty"
+          newDay = '30'
         }
         else if(newMonth in twentyeight){
-          typeDay = "twentyeight"
+          newDay = '28'
         }
-        var newDay = lastDayOfMonth.get(typeDay)
       }
       else{
         newMonth = "NULL"
         newDay = "NULL"
         year = "NULL"
       }
-    }else{
+    }
+    else{
       newDay = +day - 1
-      newMonth = month
+      newMonth = +month
     }
     var newDate = `${year}-${newMonth}-${newDay}`
     return newDate
   }
 
-  componentDidMount(){
-    const endpoint = 'https://api.nasa.gov/planetary/apod?'
-    const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
-    fetch(`${endpoint}api_key=${key}&date=${this.getPreviousDate(this.state.oldDate)}`)
-      .then(res => res.json())
-      .then(res => this.setState({
-        prevDate: res.date,
-        explanation: res.explanation,
-        mediaUrl: res.url,
-        mediaType: res.media_type,
-        isLoading: false
-      }))
+  handleDate() { //fill an array with n previous dates (e.g. 3)
+    var writableDate = this.state.todayDate
+    const dateArray = []
+    for(var i = 0; i < 3; i++){
+      writableDate = this.getPreviousDate(writableDate)
+      dateArray.push(writableDate)
+    }
+    this.setState({ previousDates: [...dateArray] })
   }
 
 
+  requestPreviousApods(){
+    const {previousDates} = this.state
+    this.setState({ isLoading: true })
+    const endpoint = 'https://api.nasa.gov/planetary/apod?'
+    const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
+      for(var i=0; i<previousDates.length; i++){
+        const req = `${endpoint}api_key=${key}&date=${previousDates[i]}`
+        fetch(req)
+          .then(res => {
+            try {
+              if(res.ok) {
+                return res.json()
+          .then(res =>
+            this.setState({
+              previousMediaUrls: [...this.state.previousMediaUrls, res.url],
+              previousTitles: [...this.state.previousTitles, res.title],
+              previousMediaType: [...this.state.previousMediaType, res.media_type],
+              previousDates: [...this.state.previousDates, res.date]
+            }))
+              }else {
+              console.log('error')
+              }
+            }
+            catch(error) {
+              console.log(res)
+            }
+          }
+          ) //final then
+      } this.setState({ isLoading: false })
+    }
 
-  render(){
-    return(
-      <div className="previousApod">
-        <a href={this.state.mediaUrl} target="_blank" rel="noopener noreferrer">
-          <h2>Previous APOD</h2>
-        </a>
-          {this.mediaType()} <br/>
-          <p>{this.state.explanation}</p>
-      </div>
-    )
+
+  loadPreviousApods() {
+    this.handleDate()
+    setTimeout( () => {this.requestPreviousApods()}, 100)
+  }
+
+  apodOutput() {
+    document.getElementById('particles-js').style.height = '300vh';
+    const {isLoading, previousMediaUrls, previousTitles, previousMediaType, previousDates} = this.state
+    for(var i=0; i<3; i++){
+      return(
+        <div className="previousApod">
+          <hr/>
+          <h5>{previousTitles[0]}</h5>
+          <h5>{previousDates[0]}</h5>
+          <a href={previousMediaUrls[0]}><img alt='first' src={previousMediaUrls[0]}></img></a>
+          <hr/>
+          <h5>{previousTitles[1]}</h5>
+          <h5>{previousDates[1]}</h5>
+          <a href={previousMediaUrls[1]}><img alt='second' src={previousMediaUrls[1]}></img></a>
+          <hr/>
+          <h5>{previousTitles[2]}</h5>
+          <h5>{previousDates[2]}</h5>
+          <a href={previousMediaUrls[2]}><img alt='third' src={previousMediaUrls[2]}></img></a>
+          <hr/>
+        </div>
+      )
+    }
+
+  }
+
+  render() {
+    const {isLoading, previousMediaUrls, previousTitles, previousMediaType, previousDates} = this.state
+    if(!isLoading & previousMediaUrls.length >= 3 & previousTitles.length >= 3 & previousMediaType.length >= 3){
+      return(
+        <div>
+          {this.apodOutput()}
+        </div>
+      )
+    } else {
+      return(
+        <div className="previousApod">
+          <button onClick={this.loadPreviousApods}>Load Previous Apods</button>
+        </div>
+      )
+    }
+
+
   }
 }
 
 export default PreviousApod
+
+
+
+// ---------------------
+
+
+// <h5>{previousTitles[i]}</h5>
+// <h5>{previousDates[i]}</h5>
+// <img alt={i} src={previousMediaUrls[i]}></img>
