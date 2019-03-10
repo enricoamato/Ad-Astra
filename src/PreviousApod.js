@@ -9,7 +9,6 @@ class PreviousApod extends React.Component {
       previousMediaUrls: [],
       previousTitles: [],
       previousMediaType: [],
-      previousDates: [],
       isLoading: undefined
     }
     this.handleDate = this.handleDate.bind(this)
@@ -80,6 +79,7 @@ class PreviousApod extends React.Component {
     const endpoint = 'https://api.nasa.gov/planetary/apod?'
     const key = '2RameM4Tr39cfFBVk0hNhySsBeOONh1lEgK5rrp4'
       for(var i=0; i<previousDates.length; i++){
+        setTimeout( () => {}, 100)
         const req = `${endpoint}api_key=${key}&date=${previousDates[i]}`
         fetch(req)
           .then(res => {
@@ -113,31 +113,47 @@ class PreviousApod extends React.Component {
 
   apodOutput() {
     document.getElementById('particles-js').style.height = '300vh';
-    const {isLoading, previousMediaUrls, previousTitles, previousMediaType, previousDates} = this.state
-    for(var i=0; i<3; i++){
-      return(
-        <div className="previousApod">
-          <hr/>
-          <h5>{previousTitles[0]}</h5>
-          <h5>{previousDates[0]}</h5>
-          <a href={previousMediaUrls[0]}><img alt='first' src={previousMediaUrls[0]}></img></a>
-          <hr/>
-          <h5>{previousTitles[1]}</h5>
-          <h5>{previousDates[1]}</h5>
-          <a href={previousMediaUrls[1]}><img alt='second' src={previousMediaUrls[1]}></img></a>
-          <hr/>
-          <h5>{previousTitles[2]}</h5>
-          <h5>{previousDates[2]}</h5>
-          <a href={previousMediaUrls[2]}><img alt='third' src={previousMediaUrls[2]}></img></a>
-          <hr/>
+    const {previousMediaUrls, previousTitles, previousDates} = this.state
+    return(
+      <div>
+        <div className="previousApodContainer">
+          <ul className="navbarContainer">
+            <li className="firstPreviousApod">
+              <div className="previousApodText"><h5>{previousTitles[0]}</h5></div>
+              <h5>{previousDates[0]}</h5>
+              <a href={previousMediaUrls[0]}><img alt="1" src={previousMediaUrls[0]}></img></a>
+            </li>
+          </ul>
         </div>
-      )
-    }
 
+        <div className="previousApodContainer">
+          <ul className="navbarContainer">
+            <li className="firstPreviousApod">
+              <div className="previousApodText"><h5>{previousTitles[1]}</h5></div>
+              <h5>{previousDates[1]}</h5>
+              <a href={previousMediaUrls[1]}><img alt="2" src={previousMediaUrls[1]}></img></a>
+            </li>
+          </ul>
+        </div>
+
+        <div className="previousApodContainer">
+          <ul className="navbarContainer">
+            <li className="firstPreviousApod">
+              <div className="previousApodText"><h5>{previousTitles[2]}</h5></div>
+              <h5>{previousDates[2]}</h5>
+              <a href={previousMediaUrls[2]}><img alt="3" src={previousMediaUrls[2]}></img></a>
+            </li>
+          </ul>
+        </div>
+
+    </div>
+    )
   }
 
+
+
   render() {
-    const {isLoading, previousMediaUrls, previousTitles, previousMediaType, previousDates} = this.state
+    const {isLoading, previousMediaUrls, previousTitles, previousMediaType} = this.state
     if(!isLoading & previousMediaUrls.length >= 3 & previousTitles.length >= 3 & previousMediaType.length >= 3){
       return(
         <div>
@@ -146,7 +162,7 @@ class PreviousApod extends React.Component {
       )
     } else {
       return(
-        <div className="previousApod">
+        <div className="loadButton">
           <button onClick={this.loadPreviousApods}>Load Previous Apods</button>
         </div>
       )
@@ -159,10 +175,6 @@ class PreviousApod extends React.Component {
 export default PreviousApod
 
 
-
-// ---------------------
-
-
-// <h5>{previousTitles[i]}</h5>
-// <h5>{previousDates[i]}</h5>
-// <img alt={i} src={previousMediaUrls[i]}></img>
+{/*<li className="secondPreviousApod"><h5>2</h5></li>
+<li className="thirdPreviousApod"><h5>3</h5></li>
+</ul>*/}
