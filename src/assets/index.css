@@ -136,28 +136,6 @@ img {
   }
 }
 
-.previousApod {
-  text-align: center;
-  width: 80%;
-  margin: 0 auto;
-  background-color: #252525;
-}
-
-.previousApod img, iframe {
-  width: 50%;
-}
-
-.previousApod img {
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
-}
-
-.previousApod img:hover{
-  opacity: 0.6;
-}
 
 .apodSearch {
   text-align: center;
@@ -190,11 +168,53 @@ button {
   margin: 3% auto 3% auto;
 }
 
-#dt {
-  text-indent: -500px;height:25px; width:200px;
-}
-
 h5 {
   font-size: 1.5em;
   font-family: 'Lato', sans-serif;
+}
+
+.previousApod {
+  width: 33%;
+  height: 100%;
+  background-color: #252525;
+  clear: both;
+  box-sizing: border-box;
+}
+
+
+.previousApodContainer img {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2ss ease-in-out;
+  border-radius: 50%;
+}
+
+.previousApodContainer img:hover{
+  opacity: 0.6;
+}
+
+.previousApodContainer {
+  text-align: center;
+  width: 32%;
+  float: left;
+  min-height: 27em;
+  background-color: #4e4e4ef2;
+  margin-left: 1%;
+  box-shadow: 0 4px 8px 0 rgba(255,255,255,0.2);
+  transition: 0.3s;
+}
+
+.previousApodContainer img, iframe {
+  margin-bottom: 0px;
+}
+
+.loadButton {
+  text-align: center;
+}
+
+.previousApodText {
+  min-width: 100%;
+  height: 5em;
 }
