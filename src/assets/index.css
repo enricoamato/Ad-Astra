@@ -20,7 +20,7 @@ ul, li, ol {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 200vh;
+  height: 160vh;
 }
 
 .MainLandingPageDiv {
@@ -34,14 +34,14 @@ ul, li, ol {
   font-family: 'Audiowide', cursive;
   font-size: 7em;
   display: inline-block;
-  letter-spacing: 18px;
+  letter-spacing: 27px;
   box-sizing: border-box;
 }
 
 .apod {
   font-family: 'Lato', sans-serif;
   display: block;
-  margin: -10px auto 100px auto;
+  margin: -10px auto 50px auto;
   width: 75%;
   max-height: auto;
   text-align: center;
@@ -109,8 +109,9 @@ img {
     font-size: 1.5em;
   }
   .previousApodContainer {
-    /* color: red;
-    width: 10%; */
+    float: left;
+    width: 25%;
+    margin-left: 6%;
   }
 }
 
@@ -124,6 +125,11 @@ img {
   }
   .MainLandingPageDiv h1 {
     font-size: 5em;
+  }
+  .previousApodContainer {
+    float: left;
+    width: 27%;
+    margin-left: 4.5%;
   }
 }
 
@@ -139,13 +145,12 @@ img {
     font-size: 4em;
   }
   .previousApodContainer {
-    color: yellow;
-    float: right;
-    width: 1200px;
+    float: none;
+    width: 52%;
+    margin: 0 auto;
+    margin-bottom: 4.5%;
   }
-
 }
-
 
 .apodSearch {
   text-align: center;
@@ -157,18 +162,6 @@ input[type=text] {
   margin-top: 10px;
   padding-left: 0px;
   border-radius: 2px;
-}
-
-button {
-  font-size: 22px;
-  margin-top: 10px;
-  padding-left: 0px;
-  background-color: white;
-  border: 0px solid white;
-  margin-left: 0px;
-  border-radius: 2px;
-  margin-left: 3px;
-  padding: 1px;
 }
 
 .title {
@@ -183,13 +176,13 @@ h5 {
   font-family: 'Lato', sans-serif;
 }
 
-.previousApod {
-  width: 33%;
-  height: 100%;
-  background-color: #252525;
-  box-sizing: border-box;
+.previousApodContainer {
+  text-align: center;
+  min-height: 25em;
+  background-color: rgba(25,25,25, 0.6);
+  box-shadow: 1px 1px 10px rgba(255,255,255, 0.8);
+  transition: 0.3s;
 }
-
 
 .previousApodContainer img {
   -webkit-transition: opacity 0.2s ease-in-out;
@@ -204,23 +197,59 @@ h5 {
   opacity: 0.6;
 }
 
-.previousApodContainer {
-  text-align: center;
-  width: 27%;
-  float: left;
-  min-height: 27em;
-  background-color: rgba(25,25,25, 0.6);
-  margin-left: 4.5%;
-  box-shadow: 2px 2px 2px 2px rgba(255,255,255,0.2);
-  transition: 0.3s;
-  border: 2px solid red;
+button {
+  font-size: 22px;
+  margin-top: 10px;
+  padding-left: 0px;
+  background-color: white;
+  border: 0px solid white;
+  margin-left: 0px;
+  border-radius: 2px;
+  margin-left: 3px;
+  padding: 1px;
+  cursor: pointer;
 }
 
 .loadButton {
   text-align: center;
 }
 
+.loadButton button {
+  -webkit-animation: glowing 2000ms infinite;
+  -moz-animation: glowing 2000ms infinite;
+  -o-animation: glowing 2000ms infinite;
+  animation: glowing 2000ms infinite;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 40px;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #FFF; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FFF; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #FFF; }
+}
+
+@-moz-keyframes glowing {
+  0% { background-color: #FFF; -moz-box-shadow: 0 0 3px #FFF; }
+  50% { background-color: #FFF; -moz-box-shadow: 0 0 40px #FFF; }
+  100% { background-color: #FFF; -moz-box-shadow: 0 0 3px #FFF; }
+}
+
+@-o-keyframes glowing {
+  0% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
+  50% { background-color: #FFF; box-shadow: 0 0 40px #FFF; }
+  100% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
+}
+
+@keyframes glowing {
+  0% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
+  50% { background-color: #FFF; box-shadow: 0 0 40px #FFF; }
+  100% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
+}
+
 .previousApodText {
+  font-family: 'Audiowide', cursive;
   min-width: 100%;
   height: 5em;
 }
