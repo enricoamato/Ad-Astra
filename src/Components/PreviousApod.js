@@ -118,31 +118,37 @@ class PreviousApod extends React.Component {
 
   apodOutput() {
     document.getElementById('particles-js').style.height = '240vh';
-    const {previousMediaUrls, previousTitles, previousDates} = this.state
+    const {previousTitles, previousDates} = this.state
     return(
 
-      <div className="allPreviousApodsContainer">
+      <div>
         <div className="previousApodContainer">
           <li>
-            <div className="previousApodText"><h5>{previousTitles[0]}</h5></div>
-            <h5>{previousDates[0]}</h5>
-            {this.mediaType(0)}
+            <div className="previousApodText">
+              <h5>{previousTitles[0]}</h5>
+              <h5>{previousDates[0]}</h5>
+              {this.mediaType(0)}
+            </div>
           </li>
         </div>
 
         <div className="previousApodContainer">
           <li>
-            <div className="previousApodText"><h5>{previousTitles[1]}</h5></div>
-            <h5>{previousDates[1]}</h5>
-            {this.mediaType(1)}
+            <div className="previousApodText">
+              <h5>{previousTitles[1]}</h5>
+              <h5>{previousDates[1]}</h5>
+              {this.mediaType(1)}
+            </div>
           </li>
         </div>
 
         <div className="previousApodContainer">
           <li>
-            <div className="previousApodText"><h5>{previousTitles[2]}</h5></div>
-            <h5>{previousDates[2]}</h5>
-            {this.mediaType(2)}
+            <div className="previousApodText">
+              <h5>{previousTitles[2]}</h5>
+              <h5>{previousDates[2]}</h5>
+              {this.mediaType(2)}
+            </div>
           </li>
         </div>
       </div>
