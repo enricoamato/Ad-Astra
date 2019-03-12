@@ -1,5 +1,5 @@
 import React from 'react'
-import MainLandingPage from './MainLandingPage'
+import Title from './Title'
 import Apod from './Apod'
 import Navbar from './Navbar'
 import PreviousApod from './PreviousApod'
@@ -90,7 +90,7 @@ class App extends React.Component {
       <div>
         <Navbar />
 
-        <MainLandingPage />
+        <Title />
         <Apod
           mediaUrl={mediaUrl}
           date={date}
@@ -111,7 +111,7 @@ class App extends React.Component {
       return(
         <div>
           <Navbar />
-          <MainLandingPage />
+          <Title />
           <h1>Loading...</h1>
         </div>
       )
