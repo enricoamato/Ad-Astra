@@ -16,11 +16,16 @@ class PreviousApod extends React.Component {
     this.loadPreviousApods = this.loadPreviousApods.bind(this)
   }
 
-  mediaType(){
-    if(this.state.mediaType === 'video'){
-      return <iframe src={this.state.mediaUrl} allowFullScreen={true} title="nasa"></iframe>
+  mediaType(num){
+    if(this.state.previousMediaType[num] === 'video'){
+      return <iframe src={this.state.mediaUrl[num]} allowFullScreen={true} title="nasa"></iframe>
     }else{
-      return <img src={this.state.mediaUrl} alt="Apod"></img>
+      return(
+        <div>
+          <a href={this.state.previousMediaUrls[num]}><img alt="1" src={this.state.previousMediaUrls[num]}></img></a>
+        </div>
+      )
+
     }
   }
 
@@ -112,7 +117,7 @@ class PreviousApod extends React.Component {
   }
 
   apodOutput() {
-    document.getElementById('particles-js').style.height = '300vh';
+    document.getElementById('particles-js').style.height = '240vh';
     const {previousMediaUrls, previousTitles, previousDates} = this.state
     return(
 
@@ -121,7 +126,7 @@ class PreviousApod extends React.Component {
           <li>
             <div className="previousApodText"><h5>{previousTitles[0]}</h5></div>
             <h5>{previousDates[0]}</h5>
-            <a href={previousMediaUrls[0]}><img alt="1" src={previousMediaUrls[0]}></img></a>
+            {this.mediaType(0)}
           </li>
         </div>
 
@@ -129,7 +134,7 @@ class PreviousApod extends React.Component {
           <li>
             <div className="previousApodText"><h5>{previousTitles[1]}</h5></div>
             <h5>{previousDates[1]}</h5>
-            <a href={previousMediaUrls[1]}><img alt="2" src={previousMediaUrls[1]}></img></a>
+            {this.mediaType(1)}
           </li>
         </div>
 
@@ -137,7 +142,7 @@ class PreviousApod extends React.Component {
           <li>
             <div className="previousApodText"><h5>{previousTitles[2]}</h5></div>
             <h5>{previousDates[2]}</h5>
-            <a href={previousMediaUrls[2]}><img alt="3" src={previousMediaUrls[2]}></img></a>
+            {this.mediaType(2)}
           </li>
         </div>
       </div>
@@ -166,8 +171,3 @@ class PreviousApod extends React.Component {
 }
 
 export default PreviousApod
-
-
-{/*<li className="secondPreviousApod"><h5>2</h5></li>
-<li className="thirdPreviousApod"><h5>3</h5></li>
-</ul>*/}
