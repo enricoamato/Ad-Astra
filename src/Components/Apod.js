@@ -15,15 +15,17 @@ const Apod = (props) =>  {
 
   if(!props.isLoading){
       return(
-        <div className="apod animated bounceInUp">
-          <h1>Astronomy Picture of the Day</h1>
-          <h4>{props.date}</h4>
+        <div className="apod-container animated bounceInUp">
           <Search
             handleChange={props.handleChange}
             search={props.search}
           />
-          <h3 className="title">{props.title}</h3>
-          <div className="apodMedia">
+          <br/>
+
+          <h3>{props.title}</h3>
+          <h3>{props.date}</h3>
+
+          <div className="apod-media">
             <a href={props.mediaUrl} target="_blank" rel="noopener noreferrer">
               {mediaType()}
             </a>
