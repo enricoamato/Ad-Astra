@@ -16,7 +16,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <div className="apodSearch">
+      <div className="apod-search">
 
         <form onSubmit={this.search}>
           <label>Manually Search for Previous Apod: </label> <br/>
