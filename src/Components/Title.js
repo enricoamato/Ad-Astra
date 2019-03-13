@@ -1,11 +1,5 @@
 import React from 'react'
 
-const Title = () => {
-  return (
-    <div className="MainLandingPageDiv">
-      <h1>Ad Astra</h1>
-    </div>
-  )
-}
+const Title = () => <h1 id="title">Ad Astra</h1>
 
 export default Title
