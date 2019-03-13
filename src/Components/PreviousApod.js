@@ -18,11 +18,11 @@ class PreviousApod extends React.Component {
 
   mediaType(num){
     if(this.state.previousMediaType[num] === 'video'){
-      return <iframe src={this.state.mediaUrl[num]} allowFullScreen={true} title="nasa"></iframe>
+      return <iframe src={this.state.previousMediaUrls[num]} allowFullScreen={true} title="nasa"></iframe>
     }else{
       return(
         <div>
-          <a href={this.state.previousMediaUrls[num]}><img alt="1" src={this.state.previousMediaUrls[num]}></img></a>
+          <a href={this.state.previousMediaUrls[num]}><img alt="nasa" src={this.state.previousMediaUrls[num]}></img></a>
         </div>
       )
 
@@ -122,35 +122,25 @@ class PreviousApod extends React.Component {
     return(
 
       <div>
+
         <div className="previousApodContainer">
-          <li>
-            <div className="previousApodText">
-              <h5>{previousTitles[0]}</h5>
-              <h5>{previousDates[0]}</h5>
-              {this.mediaType(0)}
-            </div>
-          </li>
+          <h5>{previousTitles[0]}</h5>
+          <h5>{previousDates[0]}</h5>
+          {this.mediaType(0)}
         </div>
 
         <div className="previousApodContainer">
-          <li>
-            <div className="previousApodText">
-              <h5>{previousTitles[1]}</h5>
-              <h5>{previousDates[1]}</h5>
-              {this.mediaType(1)}
-            </div>
-          </li>
+          <h5>{previousTitles[1]}</h5>
+          <h5>{previousDates[1]}</h5>
+          {this.mediaType(1)}
         </div>
 
         <div className="previousApodContainer">
-          <li>
-            <div className="previousApodText">
-              <h5>{previousTitles[2]}</h5>
-              <h5>{previousDates[2]}</h5>
-              {this.mediaType(2)}
-            </div>
-          </li>
+          <h5>{previousTitles[2]}</h5>
+          <h5>{previousDates[2]}</h5>
+          {this.mediaType(2)}
         </div>
+
       </div>
 
     )
