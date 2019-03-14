@@ -17,6 +17,24 @@ ul, li, ol {
   display: inline-block;
 }
 
+a {
+  text-decoration: none;
+}
+
+img {
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out;
+  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2ss ease-in-out;
+  border-radius: 50%;
+  width: 90%;
+}
+
+iframe {
+  width: 90%;
+}
+
 #particles-js {
   position: absolute;
   z-index: -1;
@@ -24,12 +42,12 @@ ul, li, ol {
   height: 160vh;
 }
 
-.navbarContainer {
+.navbar-container {
   display: block;
   text-align: center;
 }
 
-.navbarContainer a {
+.navbar-container a {
   font-family: 'Audiowide', cursive;
   display: block;
   text-decoration: none;
@@ -73,15 +91,14 @@ input[type=text] {
 
 button {
   font-size: 22px;
-  margin-top: 10px;
-  padding-left: 0px;
   background-color: white;
-  border: 0px solid white;
-  margin-left: 0px;
-  border-radius: 2px;
-  margin-left: 3px;
   padding: 1px;
+  border: 0px solid white;
+  border-radius: 2px;
+  margin: 10px 0 0 3px;
   cursor: pointer;
+  border: none;
+  outline: none;
 }
 
 .apod-container > h3 {
@@ -89,12 +106,8 @@ button {
   font-size: 2.4em;
 }
 
-
 img {
-  width: 80%;
-  height: auto;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  margin: 25px auto;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -ms-transition: opacity 0.2s 0.3ease-in-out;
@@ -104,85 +117,48 @@ img {
 
 img:hover{
   opacity: 0.6;
-}
-
-a {
-  text-decoration: none;
 }
 
 .apod-container > p {
   font-family: 'Laila', serif;
 }
 
-.apodMedia img {
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
-}
-
-img:hover{
-  opacity: 0.6;
-}
-
-
-
-
-
-
-.title {
-  font-size: 5em;
-  font-family: 'ZCOOL QingKe HuangYou', cursive;
-  letter-spacing: 2px;
-  margin: 3% auto 3% auto;
-}
-
-h5 {
-  font-size: 1.5em;
-  font-family: 'Lato', sans-serif;
-}
-
-
-
-.loadButton {
-  text-align: center;
-}
-
-.loadButton button {
+.load-button button {
   -webkit-animation: glowing 2000ms infinite;
   -moz-animation: glowing 2000ms infinite;
   -o-animation: glowing 2000ms infinite;
   animation: glowing 2000ms infinite;
   border-radius: 6px;
   padding: 10px;
-  margin-bottom: 40px;
+  display: block;
+  margin: 0 auto;
 }
 
-.previousApodContainer {
+.previous-apod-container {
+  width: 30%;
+  float: left;
   text-align: center;
   background-color: rgba(25,25,25, 0.6);
-  box-shadow: 1px 1px 10px rgba(255,255,255, 0.8);
+  box-shadow: 1px 1px 1px 1px rgba(255,255,255, 1);
   transition: 0.3s;
-  margin-bottom: 100px;
-}
-
-img {
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
-  border-radius: 50%;
-  width: 80%;
-}
-
-.previousApodContainer h5 {
   font-family: 'Audiowide', cursive;
-  min-width: 95%;
+}
+
+.previous-apod-title {
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.previous-apod-date {
+  width: 100%;
+  font-size: 1.5em;
+}
+
+.previous-apod-container img, iframe {
+  min-width: 90%;
   max-width: 97%;
-  height: 5em;
-  margin-top: 0;
+  height: auto;
+  padding: 0 auto 100px auto;
 }
 
 /* Glowing Effect on Button */
@@ -210,61 +186,52 @@ img {
   100% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
 }
 
-
 /* Media Queries */
-@media only screen and (min-width: 906px) {
+
+@media only screen and (min-width: 1050px) {
   .apod-container{
-    width: 55%;
+    width: 60%;
     border-radius: 1%;
-  }
-  .apodMedia iframe {
-    width: 480px;
-    height: 270px;
   }
   li {
     font-size: 1.5em;
   }
-  .previousApodContainer {
+  .previous-apod-container {
     float: left;
-    width: 25%;
-    margin-left: 6%;
+    width: 20%;
+    margin-left: 10%;
     height: 500px;
+  }
+  .previous-apod-container img {
+    height: auto;
   }
 }
 
-@media only screen and (max-width: 905px) {
+@media only screen and (max-width: 1050px) {
   .apod-container{
     width: 70%;
     border-radius: 0.4%;
   }
-  .apodMedia iframe {
-    width: 400px;
-    height: 200px;
-  }
-  .MainLandingPageDiv h1 {
-    font-size: 5em;
-  }
-  .previousApodContainer {
+  .previous-apod-container {
     float: left;
     width: 27%;
     margin-left: 4.5%;
-    height: 500px;
+    height: 400px;
   }
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 720px) {
   .apod-container{
     border-radius: 0;
   }
-  .apodMedia iframe {
-    width: 270px;
-    height: 135px;
-  }
-  .previousApodContainer {
+  .previous-apod-container {
     float: none;
     width: 55%;
     margin: 0 auto 30px auto;
-    border: 2px solid yellow;
+    height: auto;
+  }
+  .previous-apod-container img, iframe {
+    margin-bottom: 20px;
   }
   #title{
     font-size: 5em;
