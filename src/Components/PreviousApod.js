@@ -122,22 +122,21 @@ class PreviousApod extends React.Component {
     return(
 
       <div>
-
-        <div className="previousApodContainer">
-          <h5>{previousTitles[0]}</h5>
-          <h5>{previousDates[0]}</h5>
+        <div className="previous-apod-container">
+          <div className="previous-apod-title"><h5>{previousTitles[0]}</h5></div>
+          <div className="previous-apod-date"><h5>{previousDates[0]}</h5></div>
           {this.mediaType(0)}
         </div>
 
-        <div className="previousApodContainer">
-          <h5>{previousTitles[1]}</h5>
-          <h5>{previousDates[1]}</h5>
+        <div className="previous-apod-container">
+          <div className="previous-apod-title"><h5>{previousTitles[1]}</h5></div>
+          <div className="previous-apod-date"><h5>{previousDates[1]}</h5></div>
           {this.mediaType(1)}
         </div>
 
-        <div className="previousApodContainer">
-          <h5>{previousTitles[2]}</h5>
-          <h5>{previousDates[2]}</h5>
+        <div className="previous-apod-container">
+          <div className="previous-apod-title"><h5>{previousTitles[2]}</h5></div>
+          <div className="previous-apod-date"><h5>{previousDates[2]}</h5></div>
           {this.mediaType(2)}
         </div>
 
@@ -156,13 +155,11 @@ class PreviousApod extends React.Component {
       )
     } else {
       return(
-        <div className="loadButton">
+        <div className="load-button">
             <button onClick={this.loadPreviousApods}>Load Previous Apods</button>
         </div>
       )
     }
-
-
   }
 }
 
