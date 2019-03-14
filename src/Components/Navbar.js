@@ -2,7 +2,7 @@ import React from 'react'
 
 const Navbar = () => {
   return (
-      <nav className="navbarContainer">
+      <nav className="navbar-container">
         <ul>
           <li><a href="./#">Home</a></li>
           <li><a href="https://api.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA API</a></li>
