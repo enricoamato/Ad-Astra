@@ -21,7 +21,7 @@ a {
   text-decoration: none;
 }
 
-img {
+.previous-apod-container img, .apod-container img {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
   -ms-transition: opacity 0.2s 0.3ease-in-out;
@@ -63,6 +63,7 @@ iframe {
   display: block;
   letter-spacing: 27px;
   box-sizing: border-box;
+  margin-bottom: 5%;
 }
 
 .apod-container {
