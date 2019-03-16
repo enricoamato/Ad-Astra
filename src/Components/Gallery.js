@@ -26,23 +26,23 @@ const Gallery = () => {
     <div className="container">
 
         <a href={picsArray[0]}><img src={picsArray[0]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[1]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[2]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[3]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[4]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[5]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[6]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[7]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[8]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[9]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[10]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[11]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[12]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[13]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[14]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[15]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[16]} alt="universe" class="img-thumbnail"></img></a>
-        <a href={picsArray[0]}><img src={picsArray[17]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[1]}><img src={picsArray[1]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[2]}><img src={picsArray[2]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[3]}><img src={picsArray[3]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[4]}><img src={picsArray[4]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[5]}><img src={picsArray[5]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[6]}><img src={picsArray[6]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[7]}><img src={picsArray[7]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[8]}><img src={picsArray[8]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[9]}><img src={picsArray[9]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[10]}><img src={picsArray[10]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[11]}><img src={picsArray[11]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[12]}><img src={picsArray[12]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[13]}><img src={picsArray[13]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[14]}><img src={picsArray[14]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[15]}><img src={picsArray[15]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[16]}><img src={picsArray[16]} alt="universe" class="img-thumbnail"></img></a>
+        <a href={picsArray[17]}><img src={picsArray[17]} alt="universe" class="img-thumbnail"></img></a>
 
     </div>
 
