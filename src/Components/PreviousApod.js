@@ -117,7 +117,7 @@ class PreviousApod extends React.Component {
   }
 
   apodOutput() {
-    document.getElementById('particles-js').style.height = '240vh';
+    // document.getElementById('particles-js').style.height = '240vh';
     const {previousTitles, previousDates} = this.state
     return(
 
