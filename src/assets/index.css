@@ -79,9 +79,11 @@ iframe {
   padding: 16.8px;
 }
 
-.apod-search {
+.apod-search button {
   text-align: center;
-  margin: 0px auto 0px auto;
+  margin: 0px 2px;
+  outline: none;
+  border: none;
 }
 
 input[type=text] {
@@ -136,6 +138,8 @@ img:hover{
   padding: 10px;
   display: block;
   margin: 0 auto;
+  outline: none;
+  border: none;
 }
 
 .previous-apod-container {
@@ -151,11 +155,14 @@ img:hover{
 .previous-apod-title {
   width: 100%;
   font-size: 1.5em;
+  border: 2px solid yellow;
+  margin-bottom: 20%;
 }
 
 .previous-apod-date {
   width: 100%;
   font-size: 1.5em;
+  margin-bottom: 20%;
 }
 
 .previous-apod-container img, iframe {
@@ -190,9 +197,9 @@ img:hover{
   100% { background-color: #FFF; box-shadow: 0 0 3px #FFF; }
 }
 
-/* Media Queries */
 
-@media only screen and (min-width: 1050px) {
+/* Media Queries */
+@media only screen and (min-width: 1024px) {
   .apod-container{
     width: 60%;
     border-radius: 1%;
@@ -204,14 +211,17 @@ img:hover{
     float: left;
     width: 20%;
     margin-left: 10%;
-    height: 500px;
+    height: 50vh;
   }
   .previous-apod-container img {
     height: auto;
   }
+  html {
+    height: 220vh;
+  }
 }
 
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1024px) {
   .apod-container{
     width: 70%;
     border-radius: 0.4%;
@@ -220,11 +230,14 @@ img:hover{
     float: left;
     width: 27%;
     margin-left: 4.5%;
-    height: 400px;
+    height: 40vh;
+  }
+  html {
+    height: 200vh;
   }
 }
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 768px) {
   .apod-container{
     border-radius: 0;
   }
@@ -239,5 +252,8 @@ img:hover{
   }
   #title{
     font-size: 5em;
+  }
+  html {
+    height: 265vh;
   }
 }
