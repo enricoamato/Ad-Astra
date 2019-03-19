@@ -99,11 +99,9 @@ class App extends React.Component {
           handleChange={this.handleChange}
           search={this.search}
         />
-
         <PreviousApod
           date={date}
         />
-
       </div>
     )}else{
       return(
