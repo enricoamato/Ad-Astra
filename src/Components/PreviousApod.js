@@ -18,10 +18,14 @@ class PreviousApod extends React.Component {
 
   mediaType(num){
     if(this.state.previousMediaType[num] === 'video'){
-      return <iframe src={this.state.previousMediaUrls[num]} allowFullScreen={true} title="nasa"></iframe>
+      return(
+        <div className="apod-media">
+          <iframe src={this.state.previousMediaUrls[num]} allowFullScreen={true} title="nasa"></iframe>
+        </div>
+      )
     }else{
       return(
-        <div>
+        <div className="apod-media">
           <a href={this.state.previousMediaUrls[num]}><img alt="nasa" src={this.state.previousMediaUrls[num]}></img></a>
         </div>
       )
