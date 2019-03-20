@@ -1,11 +1,7 @@
 body {
     margin:0;
     padding:0;
-    box-sizing: border-box;
     background-color: black;
-    background-position: center;
-    background-repeat: repeat-y;
-    background-size: cover;
     color: white;
 }
 
@@ -144,15 +140,17 @@ img:hover{
   float: left;
   text-align: center;
   background-color: rgba(25,25,25, 0.6);
-  box-shadow: 1px 1px 1px 1px rgba(255,255,255, 1);
+  box-shadow: 1px 0px 3px 1.5px rgba(255,255,255, 1);
   transition: 0.3s;
   font-family: 'Audiowide', cursive;
+  padding: 2%;
 }
 
 .previous-apod-title {
   width: 100%;
   font-size: 1.5em;
   margin-bottom: 20%;
+  height: 2em;
 }
 
 .previous-apod-date {
@@ -162,11 +160,15 @@ img:hover{
 }
 
 .previous-apod-container img, iframe {
+  position: relative;
+  top: 15px;
+  bottom: 0px;
   min-width: 90%;
   max-width: 97%;
-  height: auto;
-  padding: 0 auto 100px auto;
+  /* height: auto; */
+  /* padding: 0 auto 100px auto; */
 }
+
 
 /* Glowing Effect on Button */
 @-webkit-keyframes glowing {
@@ -208,12 +210,13 @@ img:hover{
     width: 20%;
     margin-left: 10%;
     height: 50vh;
+    border-radius: 2%;
   }
   .previous-apod-container img {
     height: auto;
   }
-  html {
-    height: 220vh;
+  body {
+    padding-bottom: 600px;
   }
 }
 
@@ -226,10 +229,7 @@ img:hover{
     float: left;
     width: 27%;
     margin-left: 4.5%;
-    height: 40vh;
-  }
-  html {
-    height: 200vh;
+    border-radius: 2%;
   }
 }
 
@@ -240,16 +240,24 @@ img:hover{
   .previous-apod-container {
     float: none;
     width: 55%;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 45px auto;
     height: auto;
   }
+  .previous-apod-container h5{
+    font-size: 1em;
+  }
+
   .previous-apod-container img, iframe {
     margin-bottom: 20px;
   }
   #title{
     font-size: 5em;
   }
-  html {
-    height: 265vh;
+}
+
+
+@media only screen and (max-width: 440px) {
+  .previous-apod-title {
+    font-size: .9em;
   }
 }
