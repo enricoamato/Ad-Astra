@@ -19,6 +19,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.search = this.search.bind(this)
+    // this.getKeyIndexes = this.getKeyIndexes.bind(this)
   }
 
   componentDidMount() {
@@ -83,6 +84,53 @@ class App extends React.Component {
     }
   }
 
+  // stringToArray(str){
+  //   var arrExplanation = []
+  //   for(var i=0; i<str.length; i++){
+  //     arrExplanation.push(str.charAt(i))
+  //   }
+  //   return arrExplanation
+  // }
+  //
+  // getKeyIndexes(arr){
+  //   var keyIndexes = [0]
+  //   for(var i=0; i<arr.length - 1; i++){
+  //     if(arr[i] === '.'){
+  //       keyIndexes.push(i)
+  //     }
+  //   }
+  //   return keyIndexes
+  // }
+  //
+  // getFormattedText(explanation){
+  //   var arrExplanation = this.stringToArray(explanation)
+  //   var keyIndexes = this.getKeyIndexes(arrExplanation)
+  //
+  //   console.log(keyIndexes)
+  //
+  //   var i = 0
+  //   var firstParagraph = []
+  //   var buffer = null
+  //
+  //   while( i < keyIndexes.length){
+  //     buffer  = arrExplanation.slice(keyIndexes[i], keyIndexes[i + 2])
+  //     firstParagraph.push(buffer)
+  //     i = i + 2
+  //     if(i > 1){
+  //       buffer  = arrExplanation.slice((keyIndexes[i] + 2), keyIndexes[i + 2])
+  //       firstParagraph.push(buffer)
+  //       i = i + 2
+  //     }
+  //   }
+  //   return firstParagraph
+  //   }
+  //
+  //
+  // outputFormattedParagraph(explanation) {
+  //   var completedArray = this.getFormattedText(explanation)
+  //   console.log(completedArray)
+  // }
+
   render() {
     const {mediaUrl, date, explanation, isLoading, mediaType, title} = this.state
     if(!isLoading){
@@ -102,6 +150,7 @@ class App extends React.Component {
         <PreviousApod
           date={date}
         />
+
       </div>
     )}else{
       return(
@@ -115,3 +164,5 @@ class App extends React.Component {
 } //class
 
 export default App
+
+//<button onClick={this.outputFormattedParagraph(explanation)} />
