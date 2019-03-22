@@ -84,52 +84,45 @@ class App extends React.Component {
     }
   }
 
-  // stringToArray(str){
-  //   var arrExplanation = []
-  //   for(var i=0; i<str.length; i++){
-  //     arrExplanation.push(str.charAt(i))
-  //   }
-  //   return arrExplanation
-  // }
-  //
-  // getKeyIndexes(arr){
-  //   var keyIndexes = [0]
-  //   for(var i=0; i<arr.length - 1; i++){
-  //     if(arr[i] === '.'){
-  //       keyIndexes.push(i)
-  //     }
-  //   }
-  //   return keyIndexes
-  // }
-  //
-  // getFormattedText(explanation){
-  //   var arrExplanation = this.stringToArray(explanation)
-  //   var keyIndexes = this.getKeyIndexes(arrExplanation)
-  //
-  //   console.log(keyIndexes)
-  //
-  //   var i = 0
-  //   var firstParagraph = []
-  //   var buffer = null
-  //
-  //   while( i < keyIndexes.length){
-  //     buffer  = arrExplanation.slice(keyIndexes[i], keyIndexes[i + 2])
-  //     firstParagraph.push(buffer)
-  //     i = i + 2
-  //     if(i > 1){
-  //       buffer  = arrExplanation.slice((keyIndexes[i] + 2), keyIndexes[i + 2])
-  //       firstParagraph.push(buffer)
-  //       i = i + 2
-  //     }
-  //   }
-  //   return firstParagraph
-  //   }
-  //
-  //
-  // outputFormattedParagraph(explanation) {
-  //   var completedArray = this.getFormattedText(explanation)
-  //   console.log(completedArray)
-  // }
+
+
+  getKeyIndexes(str){
+    var keyIndexes = [0]
+    for(var i=0; i<str.length - 1; i++){
+      if(str[i] === '.'){
+        keyIndexes.push(i)
+      }
+    }
+    return keyIndexes
+  }
+
+  getFormattedText(explanation){
+    var keyIndexes = this.getKeyIndexes(this.state.explanation)
+
+    var i = 0
+    var j = 2
+    var paragraph = []
+    var buffer = null
+
+    while(keyIndexes[j] <= keyIndexes[keyIndexes.length - 1]){
+      buffer  = explanation.slice((keyIndexes[i]), (keyIndexes[j]) + 1)
+      paragraph.push(buffer)
+      i = i + 2
+      j = j + 2
+      if(i >= 1){
+        buffer  = explanation.slice((keyIndexes[i]) + 1, (keyIndexes[j]) + 1)
+        paragraph.push(buffer)
+        i = i + 2
+        j = j + 2
+      }
+    }
+
+    const listParagraphs = paragraph.map((paragraph, index) =>
+      <li key={index} className="paragraph">{paragraph}</li>
+    )
+    return listParagraphs
+  }
+
 
   render() {
     const {mediaUrl, date, explanation, isLoading, mediaType, title} = this.state
@@ -140,7 +133,7 @@ class App extends React.Component {
         <Apod
           mediaUrl={mediaUrl}
           date={date}
-          explanation={explanation}
+          explanation={this.getFormattedText(explanation)}
           isLoading={isLoading}
           mediaType={mediaType}
           title={title}
@@ -150,7 +143,6 @@ class App extends React.Component {
         <PreviousApod
           date={date}
         />
-
       </div>
     )}else{
       return(
