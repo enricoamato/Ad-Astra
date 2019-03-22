@@ -72,6 +72,10 @@ iframe {
   padding: 16.8px;
 }
 
+.apod-container .paragraph {
+  margin-top: 4%;
+}
+
 .apod-search button {
   text-align: center;
   margin: 0px 2px;
