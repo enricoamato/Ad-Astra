@@ -25,10 +25,6 @@ a {
   width: 90%;
 }
 
-iframe {
-  width: 90%;
-}
-
 #particles-js {
   position: fixed;
   left: 0;
@@ -169,8 +165,6 @@ img:hover{
   bottom: 0px;
   min-width: 90%;
   max-width: 97%;
-  /* height: auto; */
-  /* padding: 0 auto 100px auto; */
 }
 
 
