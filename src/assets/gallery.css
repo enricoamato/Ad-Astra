@@ -1,11 +1,11 @@
 .container img {
+  margin: 1%;
+  transition: opacity 0.2s ease-in-out;
+  width: 30%;
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -ms-transition: opacity 0.2s 0.3 ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
-  width: 30%;
-  margin: 1%;
 }
 
 .navbar-container {
