@@ -25,6 +25,10 @@ a {
   width: 90%;
 }
 
+.apod-container img {
+  width: 33%
+}
+
 #particles-js {
   position: fixed;
   left: 0;
