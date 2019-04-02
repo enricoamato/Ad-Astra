@@ -19,7 +19,7 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleKeyPress = this.handleKeyPress.bind(this)
     this.search = this.search.bind(this)
-    // this.getKeyIndexes = this.getKeyIndexes.bind(this)
+    this.getKeyIndexes = this.getKeyIndexes.bind(this)
   }
 
   componentDidMount() {
