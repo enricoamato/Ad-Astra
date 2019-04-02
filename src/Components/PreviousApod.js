@@ -26,7 +26,9 @@ class PreviousApod extends React.Component {
     }else{
       return(
         <div className="apod-media">
-          <a href={this.state.previousMediaUrls[num]}><img alt="nasa" src={this.state.previousMediaUrls[num]}></img></a>
+          <a href={this.state.previousMediaUrls[num]}>
+            <div className="squared" style={{ backgroundImage: "url(" + this.state.previousMediaUrls[num] + ")" }} />
+          </a>
         </div>
       )
 
@@ -121,7 +123,6 @@ class PreviousApod extends React.Component {
   }
 
   apodOutput() {
-    // document.getElementById('particles-js').style.height = '240vh';
     const {previousTitles, previousDates} = this.state
     return(
 
