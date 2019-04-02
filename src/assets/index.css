@@ -18,9 +18,9 @@ a {
 .previous-apod-container img, .apod-container img {
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -ms-transition: opacity 0.2s 0.3 ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   border-radius: 50%;
   width: 90%;
 }
@@ -44,12 +44,12 @@ a {
 }
 
 .navbar-container a {
-  font-family: 'Audiowide', cursive;
-  display: block;
-  text-decoration: none;
-  font-size: 1.8em;
-  margin: 0 20px;
   color: white;
+  display: block;
+  font-size: 1.8em;
+  font-family: 'Audiowide', cursive;
+  margin: 0 20px;
+  text-decoration: none;
 }
 
 #title {
@@ -68,7 +68,7 @@ a {
   margin: -10px auto 50px auto;
   text-align: center;
   box-shadow: 1px 1px 2px 2px rgba(255, 255, 255, 0.68);
-  background-color: rgba(16, 16, 10, 0.68);
+  -background-color: rgba(16, 16, 10, 0.68);
   padding: 16.8px;
 }
 
@@ -78,7 +78,7 @@ a {
 
 .apod-search button {
   text-align: center;
-  margin: 0px 2px;
+  margin: 0 2px;
   outline: none;
   border: none;
 }
@@ -86,7 +86,7 @@ a {
 input[type=text] {
   font-size: 20px;
   margin-top: 10px;
-  padding-left: 0px;
+  padding-left: 0;
   border-radius: 5px;
   width: 50%;
   max-width: 10em;
@@ -96,7 +96,7 @@ button {
   font-size: 22px;
   background-color: white;
   padding: 1px;
-  border: 0px solid white;
+  border: 0 solid white;
   border-radius: 2px;
   margin: 10px 0 0 3px;
   cursor: pointer;
@@ -110,12 +110,12 @@ button {
 }
 
 img {
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  -border: 1px solid rgba(255, 255, 255, 0.4);
   -webkit-transition: opacity 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out;
-  -ms-transition: opacity 0.2s 0.3ease-in-out;
+  -ms-transition: opacity 0.2s 0.3 ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2ss ease-in-out;
+  transition: opacity 0.2s ease-in-out;
 }
 
 img:hover{
@@ -144,7 +144,7 @@ img:hover{
   float: left;
   text-align: center;
   background-color: rgba(25,25,25, 0.6);
-  box-shadow: 1px 0px 3px 1.5px rgba(255,255,255, 1);
+  box-shadow: 1px 0 3px 1.5px rgba(255,255,255, 1);
   transition: 0.3s;
   font-family: 'Audiowide', cursive;
   padding: 2%;
@@ -166,11 +166,18 @@ img:hover{
 .previous-apod-container img, iframe {
   position: relative;
   top: 15px;
-  bottom: 0px;
+  bottom: 0;
   min-width: 90%;
   max-width: 97%;
 }
 
+.squared {
+  background-size: cover;
+  height: 10em;
+  margin: 0 auto;
+  width: 10em;
+  border-radius: 50%;
+}
 
 /* Glowing Effect on Button */
 @-webkit-keyframes glowing {
@@ -199,10 +206,10 @@ img:hover{
 
 
 /* Media Queries */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1281px) {
   .apod-container{
-    width: 60%;
     border-radius: 1%;
+    width: 60%;
   }
   li {
     font-size: 1.5em;
@@ -220,6 +227,41 @@ img:hover{
   body {
     padding-bottom: 600px;
   }
+
+  .squared {
+    height: 12em;
+    width: 12em;
+  }
+}
+
+
+@media only screen and (max-width: 1280px) {
+  .apod-container{
+    border-radius: 1%;
+    width: 60%;
+  }
+  li {
+    font-size: 1.5em;
+  }
+  .previous-apod-container {
+    float: left;
+    width: 20%;
+    margin-left: 10%;
+    height: 40vh;
+    border-radius: 2%;
+  }
+  .previous-apod-container img {
+    height: auto;
+  }
+  body {
+    padding-bottom: 600px;
+  }
+
+  .squared {
+    height: 10em;
+    width: 10em;
+  }
+
 }
 
 @media only screen and (max-width: 1024px) {
@@ -255,11 +297,32 @@ img:hover{
   #title{
     font-size: 5em;
   }
+  .squared {
+    height: 15em;
+    width: 15em;
+  }
 }
 
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 486px) {
   .previous-apod-title {
-    font-size: .9em;
+    font-size: 1.1em;
+  }
+  .squared {
+    height: 10em;
+    width: 10em;
+  }
+}
+
+
+@media only screen and (max-width: 365px) {
+
+  .previous-apod-container {
+    font-size: 0.7em;
+  }
+
+  .squared {
+    height: 7.5em;
+    width: 7.5em;
   }
 }
