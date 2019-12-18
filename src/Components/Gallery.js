@@ -24,7 +24,6 @@ const Gallery = () => {
 
   return(
     <div className="container">
-
         <a href={picsArray[0]}><img src={picsArray[0]} alt="universe" class="img-thumbnail"></img></a>
         <a href={picsArray[1]}><img src={picsArray[1]} alt="universe" class="img-thumbnail"></img></a>
         <a href={picsArray[2]}><img src={picsArray[2]} alt="universe" class="img-thumbnail"></img></a>
@@ -43,12 +42,9 @@ const Gallery = () => {
         <a href={picsArray[15]}><img src={picsArray[15]} alt="universe" class="img-thumbnail"></img></a>
         <a href={picsArray[16]}><img src={picsArray[16]} alt="universe" class="img-thumbnail"></img></a>
         <a href={picsArray[17]}><img src={picsArray[17]} alt="universe" class="img-thumbnail"></img></a>
-
     </div>
 
   )
 }
-
-//random comment
 
 export default Gallery
